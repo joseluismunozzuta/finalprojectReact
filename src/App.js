@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import DaisyNavBar from './components/DaisyNavBar';
+import ItemListContainer from './components/ItemListContainer';
+import Item from './components/Item';
+import ItemCount from './components/ItemCount';
+import "./bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DaisyNavBar/>
+      <ItemListContainer>
+        <Item name='Laptop ASUS' price='1000'/>
+        <Item name='Laptop MSI' price='1500'/>
+      </ItemListContainer>
+      <ItemCount stock='7' initial='1'/>
     </div>
   );
 }
