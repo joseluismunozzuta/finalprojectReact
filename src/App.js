@@ -16,8 +16,7 @@ function App() {
     <DaisyNavBar></DaisyNavBar>
 
     <Routes>
-      <Route path='/counter' element={<ItemCount stock='7' initial='1'/>}/>
-      <Route path='/' element={<ItemDetailContainer/>}/>
+      <Route path='/' element={<ItemDetailContainer stock='10' initial='1'/>}/>
       <Route path='/item/:productId' element={<ItemUniqueId/>}/>
     </Routes>
 </BrowserRouter>

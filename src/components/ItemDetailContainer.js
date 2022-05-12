@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({stock,initial}) => {
 
     const [products, setProducts] = useState([])
 
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <div class="row justify-content-center">
-                {products.map( p => <ItemDetail key={p.url} product = {p}/>)}
+                {products.map( p => <ItemDetail stock={stock} initial={initial} key={p.url} product = {p}/>)}
             </div>
         </>
         
