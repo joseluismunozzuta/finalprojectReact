@@ -1,22 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import DaisyNavBar from './components/DaisyNavBar';
-import ItemListContainer from './components/ItemListContainer';
-import Item from './components/Item';
 import ItemCount from './components/ItemCount';
 import "./bootstrap/dist/css/bootstrap.min.css";
-import ItemList from './components/ItemList';
 import ItemDetailContainer from './components/ItemDetailContainer';
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ItemDetail from './components/ItemDetail';
+import ItemUniqueId from './components/ItemUniqueId';
 
 function App() {
 
   return (
-    <div className="App">
-      <DaisyNavBar/>
-      <ItemCount stock='7' initial='1'/>
-      <ItemDetailContainer/>
-    </div>
+
+
+<BrowserRouter>
+    <DaisyNavBar></DaisyNavBar>
+
+    <Routes>
+      <Route path='/counter' element={<ItemCount stock='7' initial='1'/>}/>
+      <Route path='/' element={<ItemDetailContainer/>}/>
+      <Route path='/item/:productId' element={<ItemUniqueId/>}/>
+    </Routes>
+</BrowserRouter>
+
   );
 }
 

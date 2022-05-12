@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link, useParams } from 'react-router-dom';
 
 const ItemDetail = ({product}) => {
+
     return (
     <>
             <div class="card" style={{width:'18rem'}}>
@@ -8,7 +10,7 @@ const ItemDetail = ({product}) => {
                 <div class="card-body">
                     <h5 class="card-title">{product.title}</h5>
                     <p class="card-text">{product.price} $</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
+                    <Link class="btn btn-primary"to={`/item/${product.id}`}>Comprar</Link>
                 </div>
             </div>
     </>

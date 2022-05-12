@@ -15,16 +15,12 @@ const ItemDetailContainer = () => {
         fetch(URL)
             .then( response => response.json() )
             .then( data => {
-                //console.log(data.results);
                 data.results.forEach(element => {
-                    //console.log(element.thumbnail);
                 })
                 setProducts(data.results);
             })
     
     }
-
-
 
     return (
         <>

@@ -1,11 +1,13 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import {Link} from "react-router-dom"
 
 const DaisyNavBar = () => {
     return (
         <div class="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl"><Link to={`/`}>Inicio</Link></a>
+                <a className="btn btn-ghost normal-case text-xl"><Link to='/counter'>Contador</Link></a>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control">
@@ -24,11 +26,11 @@ const DaisyNavBar = () => {
                         <li>
                             <a className="justify-between">
                                 Profile
-                                <span className="badge">New</span>
+                                <span className="badge">Nuevo</span>
                             </a>
                         </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li><a>Configuración</a></li>
+                        <li><a>Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
