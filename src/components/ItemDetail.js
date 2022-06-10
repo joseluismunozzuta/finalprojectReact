@@ -1,46 +1,30 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
-const ItemDetail = ({product, stock, initial}) => {
+const ItemDetail = ({key, product}) => {
 
     const [cond, setCond] = useState(true);
-    const [cuenta, setCuenta] = useState(1);
-
-    let maxProducts = stock;
-
-    const onAdd = () => {
-        if(!(cuenta >= maxProducts)){
-            setCuenta(cuenta+1);
-        }else{
-            console.log("Se alcanzo max stock");
-        }
-    }
-
-    const onLess = () => {
-        if(!(cuenta <= initial)){
-            setCuenta(cuenta-1);
-        }
-    }
 
     const toCart = () => {
         setCond(false);
     }
 
     return (
-    <>
-            
-            <div class="card" style={{width:'18rem'}}>
-                <img src={product.thumbnail} class="card-img-top" alt="" style={{width: '300px', height: '300px' }}/>
-                <div class="card-body">
-                    <h5 class="card-title">{product.title}</h5>
-                    <p class="card-text">{product.price} $</p>
-                    <Link class="btn btn-primary"to={`/item/${product.id}`}>Ver detalle</Link>
-                    {cond ? <button class="btn btn-success" onClick={toCart}>Comprar Producto</button> : <br></br>}
-                    {cond ? <ItemCount onAdd={onAdd} onLess={onLess} stock='10' initial='1' cuenta={cuenta}/> : <span>Producto agregado al carrito</span>}
+    <>      
+        <div class="card m-2" style={{width:'18rem'}}>
+            <img src={product.thumbnail} class="card-img-top" alt="" style={{width: '300px', height: '300px' }}/>
+            <div class="card-body">
+                <h5 class="card-title">{product.title}</h5>
+                <p class="card-text">Precio: {product.price} $</p>
+                <div class="row justify-content-center">
+                    <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10 content-center-colum">
+                        <Link class="btn btn-warning fw-bold text-capitalize p-2"to={`/item/${product.id}`}>Ver más</Link>
+                    </div>
                 </div>
-                
+                {cond ? <ItemCount stock='10' initial='0' id={product.id} addedToCart={toCart}/> : <span class="text-center fw-bold">Producto agregado al carrito</span>}
             </div>
+        </div>
     </>
     )
 }

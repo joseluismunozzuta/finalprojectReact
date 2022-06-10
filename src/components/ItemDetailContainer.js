@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
+import { useParams } from 'react-router-dom'
+import { useAppContext } from "../context/AppContext";
 
-const ItemDetailContainer = ({stock,initial}) => {
 
-    const [products, setProducts] = useState([])
+const ItemDetailContainer = () => {
+
+    const {productId} = useParams();
+    const [productUnique, setProductUnique] = useState({})
+    const {products} = useAppContext();
+
 
     useEffect(() => {
-        getProducts()
-    }, [])
+        setProductUnique(products.find( (producto) => producto.id === productId));
+    })
 
-    const getProducts = () => {
-        const URL = 'https://api.mercadolibre.com/sites/MLA/search?category=MLA1055';
-    
-        fetch(URL)
-            .then( response => response.json() )
-            .then( data => {
-                data.results.forEach(element => {
-                })
-                setProducts(data.results);
-            })
-    
-    }
 
     return (
         <>
             <div class="row justify-content-center">
-                {products.map( p => <ItemDetail stock={stock} initial={initial} key={p.url} product = {p}/>)}
+                <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10 text-center fw-bold">
+                    Id of the selected product: {productId}
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                    <li>ID: {productUnique.id}</li>
+                    <li>Title: {productUnique.title}</li>
+                    <img src={productUnique.thumbnail} class="card-img-top" alt="" style={{width: '300px', height: '300px' }}/>
+                </div>
             </div>
         </>
         

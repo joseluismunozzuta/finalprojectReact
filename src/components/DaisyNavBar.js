@@ -10,22 +10,19 @@ const DaisyNavBar = () => {
                 <a className="btn btn-ghost normal-case text-xl"><Link to='/counter'>Contador</Link></a>
             </div>
             <div className="flex-none gap-2">
-                <div className="form-control">
+                <div className="form-control m-1">
                     <input type="text" placeholder="Search" className="input input-bordered"/>
                 </div>
-
                 <CartWidget/>
-                
                 <div className="dropdown dropdown-end">
                     <label tabindex="0" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="https://api.lorem.space/image/face?hash=33791" />
+                            <img src="https://api.lorem.space/image/face?hash=33791" alt=''/>
                         </div>
                     </label>
                     <ul tabindex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                         <li>
-                            <a className="justify-between">
-                                Profile
+                            <a className="justify-between" href='#'>Profile
                                 <span className="badge">Nuevo</span>
                             </a>
                         </li>
