@@ -24,6 +24,7 @@ const ItemDetailContainer = () => {
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
                     <li>ID: {productUnique.id}</li>
                     <li>Title: {productUnique.title}</li>
+                    <li>Price: {productUnique.price} $</li>
                     <img src={productUnique.thumbnail} class="card-img-top" alt="" style={{width: '300px', height: '300px' }}/>
                 </div>
             </div>

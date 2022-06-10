@@ -9,6 +9,7 @@ import CartContextProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
 import NavBar from './components/NavBar';
 import Welcome from './components/Welcome';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/item/:productId' element={<ItemDetailContainer />} />
           </Routes>
+          <Footer></Footer>
         </BrowserRouter>
       </CartContextProvider>
     </AppContextProvider>
