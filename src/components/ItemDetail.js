@@ -12,10 +12,10 @@ const ItemDetail = ({ product }) => {
     return (
         <>
             <div class="card m-2" style={{ width: '18rem' }}>
-                <img src={product.thumbnail} class="card-img-top" alt="" style={{ width: '300px', height: '300px' }} />
+                <img src={product.imgUrl} class="card-img-top w-auto" alt="" style={{ width: '300px', height: '300px' }} />
                 <div class="card-body">
-                    <h5 class="card-title">{product.title}</h5>
-                    <p class="card-text">Precio: {product.price} $</p>
+                    <h5 class="card-title">{product.name}</h5>
+                    <p class="card-text">Precio: {product.price} PEN</p>
                     <div class="row justify-content-center">
                         <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10 content-center-colum">
                             <Link class="btn btn-warning fw-bold text-capitalize p-2" to={`/item/${product.id}`}>Ver más</Link>

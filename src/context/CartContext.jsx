@@ -29,7 +29,6 @@ const CartContextProvider = ({children}) => {
                 setCart(newCart);
                 return
             }else{
-                console.log("Se excede stock del producto");
                 return
             }
 
@@ -55,8 +54,6 @@ const CartContextProvider = ({children}) => {
                 const searchedProd = newCart[newCart.findIndex((prod) => prod.id === productoInCart.id)];
 
                 searchedProd.quantity -= cantidad;
-                
-                console.log(searchedProd.quantity);
 
                 if(searchedProd.quantity === 0){
                     deleteFromCart(producto);
@@ -66,8 +63,6 @@ const CartContextProvider = ({children}) => {
                     
                 return
             }        
-        }else{
-            console.log("No existe este producto en el carrito");
         }
     }
 
@@ -80,8 +75,6 @@ const CartContextProvider = ({children}) => {
             return 
         }
         const deleteProduct = newCart.filter((prod) => prod.id !== producto.id)
-        console.log("Nuevo carrito luego de delete");
-        console.log(deleteProduct);
         setCart(deleteProduct);
     }
 
@@ -89,9 +82,6 @@ const CartContextProvider = ({children}) => {
         setCart([]);
         setTotalProductos(0);
     }
-
-    console.log(cart);
-    console.log("El total de productos es " + totalProductos);
 
     return <CartContext.Provider value={{
         cart,

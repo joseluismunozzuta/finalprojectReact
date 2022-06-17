@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import {Link} from "react-router-dom"
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import CartWidget from './CartWidget'
 import Logo from "../img/logo.jpg";
 import { useCartContext } from "../context/CartContext";
