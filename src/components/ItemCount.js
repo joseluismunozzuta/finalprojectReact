@@ -25,7 +25,7 @@ const ItemCount = ({initial, stock, id, addedToCart}) => {
         }
     }
 
-    const handleClick = (id, cantidad ) => {
+    const handleClick = (id, cantidad) => {
         const findProduct = products.find( (producto) => producto.id === id)
 
         if (!findProduct){
@@ -39,8 +39,7 @@ const ItemCount = ({initial, stock, id, addedToCart}) => {
 
     return (
         <>
-            <strong>Stock: {stock}</strong>
-            <strong>Minimum amount of items: {initial}</strong>
+            <strong>Stock: {stock} items</strong>
             <br></br>
             <div class="row justify-content-center">
                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">

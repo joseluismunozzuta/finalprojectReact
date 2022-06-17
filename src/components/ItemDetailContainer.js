@@ -17,10 +17,10 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <div class="container-fluid">
+            <div class="container-fluid mt-16">
                 <div class="row min-h-fit">
                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 text-center fw-bold bg-dark text-light">
-                        Product ID: <span class="badge bg-success p-1 mb-1">{productUnique.id}</span>
+                        Product ID: <span class="badge rounded-pill bg-success px-2 pb-3 m-1">{productUnique.id}</span>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
                         <img src={productUnique.thumbnail} class="w-80 rounded-lg shadow-2xl" alt='' />
                     </div>
                     <div class="justify-content-center w-10/12">
-                        <span class="badge bg-success p-1 mb-1">{productUnique.id}</span>
+                        <span class="badge rounded-pill bg-success px-2 pb-3 mb-1">{productUnique.id}</span>
                         <h1 class="text-5xl font-bold text-light">{productUnique.title}</h1>
                         <h2 class="text-3xl font-bold text-light"><span class="fs-3">Price: </span>{productUnique.price} $</h2>
                         <Link to={'/'}><button class="btn btn-warning mt-2">Volver al catálogo</button></Link>

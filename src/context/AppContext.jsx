@@ -9,7 +9,10 @@ const AppContextProvider = ({children}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        getProducts()
+        getProducts();
+        products.forEach(p => {
+            p.stock = Math.floor((Math.random() * 20) + 1);
+        });
     }, [])
 
     const getProducts = () => {
@@ -18,6 +21,9 @@ const AppContextProvider = ({children}) => {
         fetch(URL)
             .then(response => response.json())
             .then(data => {
+                data.results.forEach(p => {
+                    p.stock = Math.floor((Math.random() * 20) + 1);
+                });
                 setProducts(data.results);
             })
     }

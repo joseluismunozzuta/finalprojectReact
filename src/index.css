@@ -10,6 +10,18 @@ body {
   background-image: url("./img/phoneback.jpg");
 }
 
+#noProds{
+  background-image: url("./img/givemoney.jpg");
+}
+
+.navbarPersistent{
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 1000;
+}
+
 .content-center-colum{
   display: flex;
   flex-direction: column;

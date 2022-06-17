@@ -16,24 +16,28 @@ const CartContextProvider = ({children}) => {
 
     //Agregar item al carrito
     const addToCart = (producto, cantidad) => {
-        
-        setTotalProductos(totalProductos+cantidad);
 
         const newCart = [...cart]
         
         const productoInCart = isInCart(producto.id)
 
         if(productoInCart){
-            newCart[newCart.findIndex((prod) => prod.id === productoInCart.id)].quantity += cantidad;
 
-            setCart(newCart);
+            if(!(producto.quantity >= producto.stock)){
+                newCart[newCart.findIndex((prod) => prod.id === productoInCart.id)].quantity += cantidad;
+                setTotalProductos(totalProductos+cantidad);
+                setCart(newCart);
+                return
+            }else{
+                console.log("Se excede stock del producto");
+                return
+            }
 
-            return
         }
 
+        setTotalProductos(totalProductos+cantidad);
         producto.quantity = cantidad;
         setCart([...newCart, producto])
-        
     }
 
     //Disminuir item al carrito
@@ -69,7 +73,6 @@ const CartContextProvider = ({children}) => {
 
     //Eliminar carrito
     const deleteFromCart = (producto) => {
-        console.log("trace deleter from cart");
         const newCart= [...cart];
         const productIsInCart = isInCart(producto.id);
         if(!productIsInCart){

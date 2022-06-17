@@ -5,7 +5,6 @@ import ItemCount from './ItemCount';
 const ItemDetail = ({ product }) => {
 
     const [cond, setCond] = useState(true);
-
     const toCart = () => {
         setCond(false);
     }
@@ -22,7 +21,7 @@ const ItemDetail = ({ product }) => {
                             <Link class="btn btn-warning fw-bold text-capitalize p-2" to={`/item/${product.id}`}>Ver más</Link>
                         </div>
                     </div>
-                    {cond ? <ItemCount stock='10' initial='0' id={product.id} addedToCart={toCart} /> :
+                    {cond ? <ItemCount initial='0' stock={product.stock} id={product.id} addedToCart={toCart} /> :
                         <div className='content-center-colum'>
                             <span class="text-center fw-bold">Producto agregado al carrito</span><Link to={'/cart'}><button type="button" class="btn btn-primary position-relatie m-1">Terminar mi compra</button></Link>
                         </div>}

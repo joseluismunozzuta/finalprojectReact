@@ -4,7 +4,7 @@ import "../welcome.css"
 const Welcome = () => {
     return (
         <>
-        <div class="slider-area">
+        <div class="slider-area mt-4">
             <div class="single-slider hero-overly slider-height d-flex align-items-center" id="backgroundDiv">
                     <div class="container">
                         <div class="row justify-content-center text-center">
