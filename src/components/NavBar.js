@@ -52,7 +52,6 @@ export default function Navbar() {
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
-                                                href={item.href}
                                                 className={classNames(
                                                     item.current
                                                         ? "bg-gray-900 text-white"

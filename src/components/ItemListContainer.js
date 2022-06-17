@@ -1,5 +1,6 @@
 import ItemDetail from './ItemDetail'
 import { useAppContext } from "../context/AppContext";
+import Welcome from './Welcome';
 
 const ItemListContainer = () => {
 
@@ -7,10 +8,12 @@ const ItemListContainer = () => {
 
 
     return (
-        <>  <div class="container-fluid">
+        <>
+            <Welcome></Welcome>
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     <h1 class="text-center m-3">Lista de celulares</h1>
-                    {products.map(p => <ItemDetail key={p.url} product={p} />)}
+                    {products.map(p => <ItemDetail key={p.id} product={p} />)}
                 </div>
             </div>
         </>

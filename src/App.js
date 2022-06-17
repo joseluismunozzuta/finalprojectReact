@@ -1,6 +1,5 @@
 import './App.css';
 import "./index.css";
-import DaisyNavBar from './components/DaisyNavBar';
 import "./bootstrap/dist/css/bootstrap.min.css";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,6 +9,7 @@ import AppContextProvider from './context/AppContext';
 import NavBar from './components/NavBar';
 import Welcome from './components/Welcome';
 import Footer from './components/Footer';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -18,10 +18,10 @@ function App() {
       <CartContextProvider>
         <BrowserRouter>
           <NavBar></NavBar>
-          <Welcome></Welcome>
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
             <Route path='/item/:productId' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
           </Routes>
           <Footer></Footer>
         </BrowserRouter>
