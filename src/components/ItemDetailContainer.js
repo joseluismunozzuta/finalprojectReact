@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppContext } from "../context/AppContext";
 import { Link } from 'react-router-dom';
+import { collection,doc, getDoc, getFirestore, query, where } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
@@ -11,7 +12,15 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        setProductUnique(products.find((producto) => producto.id === productId));
+
+        const db = getFirestore();
+
+        const ref = doc(db, "items", productId);
+        getDoc(ref).then((snapshot) => {
+            if(snapshot.exists()){
+                setProductUnique({id: snapshot.id, ...snapshot.data()});
+            }
+        })
     },[productId])
 
 
