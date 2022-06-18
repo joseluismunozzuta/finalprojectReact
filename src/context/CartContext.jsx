@@ -4,12 +4,16 @@ const CartContext = createContext()
 
 export const useCartContext = () => useContext(CartContext)
 
+const nombres = ["Jose", "Luis", "Cesar", "Eric", "Marce", "Alexis", "Diego"];
+const apellidos = ["Munoz", "Estela", "Benites", "Pacheco", "Santos", "Lucas", "Zuta"];
+
+
 const CartContextProvider = ({children}) => {
 
     //Logica
-
     const [cart, setCart] =  useState([]);
-    const [totalProductos, setTotalProductos] = useState(0);
+    const [totalproductos, setTotalproductos] = useState(0);
+    const [preciototal, setPreciototal] = useState(0);
 
     //Validar si el item esta en el carrito
     const isInCart = (id) => cart.find(prod => prod.id === id)
@@ -17,15 +21,20 @@ const CartContextProvider = ({children}) => {
     //Agregar item al carrito
     const addToCart = (producto, cantidad) => {
 
-        const newCart = [...cart]
-        
-        const productoInCart = isInCart(producto.id)
+        const newCart = [...cart];
+        const productoInCart = isInCart(producto.id);
+
+        let sum = totalproductos+cantidad;
+        let thisAmount = producto.price * cantidad;
 
         if(productoInCart){
 
+            console.log("Ya estaba en el carrito");
+
             if(!(producto.quantity >= producto.stock)){
                 newCart[newCart.findIndex((prod) => prod.id === productoInCart.id)].quantity += cantidad;
-                setTotalProductos(totalProductos+cantidad);
+                setTotalproductos(sum);
+                setPreciototal(preciototal + thisAmount);
                 setCart(newCart);
                 return
             }else{
@@ -33,17 +42,21 @@ const CartContextProvider = ({children}) => {
             }
 
         }
-
-        setTotalProductos(totalProductos+cantidad);
+        setTotalproductos(sum);
+        setPreciototal(preciototal + thisAmount);
         producto.quantity = cantidad;
-        setCart([...newCart, producto])
+        setCart([...newCart, producto]);
+    }
+
+    const generateClient = () => {
+        return nombres[(Math.floor((Math.random() * 6) + 1))] + " " + apellidos[(Math.floor((Math.random() * 6) + 1))];
     }
 
     //Disminuir item al carrito
     const lessProductFromCart = (producto, cantidad) => {
 
         if(producto.quantity > 0){
-            setTotalProductos(totalProductos-cantidad);
+            setTotalproductos(totalproductos-cantidad);
         
             const newCart = [...cart]
             
@@ -56,11 +69,12 @@ const CartContextProvider = ({children}) => {
                 searchedProd.quantity -= cantidad;
 
                 if(searchedProd.quantity === 0){
+                    console.log("trace delete");
                     deleteFromCart(producto);
                 }else{
                     setCart(newCart);
                 }
-                    
+                setPreciototal(preciototal - producto.price);
                 return
             }        
         }
@@ -80,17 +94,20 @@ const CartContextProvider = ({children}) => {
 
     const deleteCart = () => {
         setCart([]);
-        setTotalProductos(0);
+        setTotalproductos(0);
+        setPreciototal(0);
     }
 
     return <CartContext.Provider value={{
         cart,
-        totalProductos, 
+        totalproductos,
+        preciototal,
         addToCart, 
         setCart,
         deleteCart, 
         deleteFromCart,
-        lessProductFromCart
+        lessProductFromCart,
+        generateClient
     }}> {children} </CartContext.Provider>
 }
 

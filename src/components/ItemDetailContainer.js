@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppContext } from "../context/AppContext";
 import { Link } from 'react-router-dom';
-import { collection,doc, getDoc, getFirestore, query, where } from "firebase/firestore";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
     const { productId } = useParams();
-    const [productUnique, setProductUnique] = useState({})
-    const { products } = useAppContext();
-
+    const [productUnique, setProductUnique] = useState({});
 
     useEffect(() => {
 
@@ -22,7 +20,6 @@ const ItemDetailContainer = () => {
             }
         })
     },[productId])
-
 
     return (
         <>
