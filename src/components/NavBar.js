@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import CartWidget from './CartWidget'

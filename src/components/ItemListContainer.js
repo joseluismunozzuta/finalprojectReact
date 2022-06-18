@@ -1,9 +1,7 @@
 import ItemDetail from './ItemDetail'
 import { useAppContext } from "../context/AppContext";
 import Welcome from './Welcome';
-import { collection, addDoc, getDoc, getFirestore } from "firebase/firestore";
-import { getValue } from '@testing-library/user-event/dist/utils';
-import { useEffect,useState } from 'react';
+import { useEffect } from 'react';
 
 const ItemListContainer = () => {
 

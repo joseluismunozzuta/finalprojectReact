@@ -7,7 +7,6 @@ export const useCartContext = () => useContext(CartContext)
 const nombres = ["Jose", "Luis", "Cesar", "Eric", "Marce", "Alexis", "Diego"];
 const apellidos = ["Munoz", "Estela", "Benites", "Pacheco", "Santos", "Lucas", "Zuta"];
 
-
 const CartContextProvider = ({children}) => {
 
     //Logica

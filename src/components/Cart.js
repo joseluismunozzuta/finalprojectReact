@@ -8,36 +8,24 @@ import {addDoc, collection, getFirestore} from "firebase/firestore";
 const Cart = () => {
 
     const { cart } = useCartContext();
-
     const { preciototal } = useCartContext();
-
     const { totalproductos } = useCartContext();
-
     const {deleteCart} = useCartContext();
-
     const [cond, setCond] = useState(true);
-
     const [purchasedcond, setPurchasedcond] = useState(false);
-
     const { generateClient } = useCartContext();
-
     const [order, setOrder] = useState({});
 
     useEffect(() => {
 
         if (cart.length === 0) {
             console.log("No hay productos");
-            console.log(preciototal);
             setCond(false);
         } else {
             console.log("Hay productos");
             console.log(cart);
             const buyer = {};
             setOrder(createOrder(order, buyer, cart, preciototal));
-            console.log("el objeto order es: ");
-            console.log(order);
-            console.log("El precio de la orden es: ");
-            console.log(preciototal);
         }
     }, [cart])
 
@@ -61,7 +49,6 @@ const Cart = () => {
         let date = today.getFullYear() + '-' + formatearTime(today.getMonth() + 1) + '-' + formatearTime(today.getDate());
         let time = formatearTime(today.getHours()) + ":" + formatearTime(today.getMinutes()) + ":" + formatearTime(today.getSeconds());
         let dateTime = date + ' ' + time;
-        console.log(dateTime);
         return dateTime;
     }
 

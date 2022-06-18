@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useAppContext } from "../context/AppContext";
 import { Link } from 'react-router-dom';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
